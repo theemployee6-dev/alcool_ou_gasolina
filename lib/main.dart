@@ -1,3 +1,4 @@
+import 'package:alcool_ou_gasolina/widgets/logo.widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Álcool ou Gasolina',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
       ),
       home: const HomePage(),
     );
@@ -25,6 +26,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: SafeArea(
+        child: ListView(
+          children: const [
+            Logo(),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -24,9 +24,9 @@ flutter:
   uses-material-design: true
   
   assets:
-    - assets\images\aog-white.png    
+    - assets/images/aog-white.png    
  
   fonts:
-    - family: BigShouldersDisplay
+    - family: Big Shoulders Display
       fonts:
-        - asset: assets\fonts\BigShouldersDisplay-Light.ttf  
+        - asset: assets/fonts/BigShouldersDisplay-Light.ttf  
