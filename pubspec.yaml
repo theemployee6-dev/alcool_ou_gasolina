@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   
   cupertino_icons: ^1.0.2
+  flutter_masked_text: ^0.8.0
 
 dev_dependencies:
   flutter_test:
@@ -21,8 +22,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
+  
   assets:
     - assets\images\aog-white.png    
  
