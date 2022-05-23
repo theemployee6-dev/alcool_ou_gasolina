@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:alcool_ou_gasolina/widgets/input.widget.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
@@ -38,6 +40,50 @@ class HomePage extends StatelessWidget {
           children: [
             const Logo(),
             const SizedBox(height: 20),
+            Container(
+              margin: const EdgeInsets.all(30.0),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.8),
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(height: 50.0),
+                  Text(
+                    "Compensa usar Gasolina",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 40.0,
+                      fontFamily: "Big Shoulders Display",
+                    ),
+                  ),
+                  const SizedBox(height: 20.0),
+                  Container(
+                    height: 60.0,
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(30.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.8),
+                      borderRadius: BorderRadius.circular(60.0),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        debugPrint("Botão Calcular");
+                      },
+                      child: Text(
+                        "Calcular novamente",
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 25,
+                          fontFamily: "Big Shoulders Display",
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Input(label: 'Gasolina', ctrl: _gasCtrl),
             Input(label: 'Álcool', ctrl: _alcCtrl),
             Container(
