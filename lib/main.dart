@@ -39,8 +39,30 @@ class HomePage extends StatelessWidget {
         child: ListView(
           children: [
             const Logo(),
+            const SizedBox(height: 20),
             Input(label: 'Gasolina', ctrl: _gasCtrl),
             Input(label: 'Álcool', ctrl: _alcCtrl),
+            Container(
+              height: 60.0,
+              width: double.infinity,
+              margin: const EdgeInsets.all(30.0),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.8),
+                borderRadius: BorderRadius.circular(60.0),
+              ),
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Calcular",
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 25,
+                    fontFamily: "Big Shoulders Display",
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
