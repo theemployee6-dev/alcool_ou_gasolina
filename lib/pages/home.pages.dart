@@ -6,6 +6,8 @@ import '../widgets/submit.form.dart';
 import '../widgets/success.widget.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -19,7 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   var _completed = false;
 
-  var _resultText = "Compensa utilizar Álcool";
+  var _resultText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  calculate() {
+  Future calculate() {
     double alc = double.parse(
           _alcCtrl.text.replaceAll(RegExp(r'[,.]'), ''),
         ) /
@@ -57,6 +59,18 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _completed = false;
       _busy = true;
+    });
+
+    return Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        if (res >= 0.7) {
+          _resultText = "Compensa utilizar Gasolina";
+        } else {
+          _resultText = "Compensa utilizar Álcool";
+        }
+        _completed = true;
+        _busy = false;
+      });
     });
   }
 }
