@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
+// ignore: must_be_immutable
 class Input extends StatelessWidget {
   var label = '';
   var ctrl = MoneyMaskedTextController();

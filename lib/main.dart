@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:alcool_ou_gasolina/widgets/input.widget.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
@@ -51,7 +49,9 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(60.0),
               ),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  debugPrint("Botão Calcular");
+                },
                 child: Text(
                   "Calcular",
                   style: TextStyle(
