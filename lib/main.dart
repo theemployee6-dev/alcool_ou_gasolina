@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:alcool_ou_gasolina/widgets/input.widget.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 import 'widgets/logo.widget.dart';
@@ -38,70 +39,8 @@ class HomePage extends StatelessWidget {
         child: ListView(
           children: [
             const Logo(),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 100.0,
-                      alignment: Alignment.centerRight,
-                      child: const Text(
-                        'Gasolina:',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 35,
-                            fontFamily: "Big Shoulders Display"),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: TextFormField(
-                        controller: _gasCtrl,
-                        keyboardType: TextInputType.number,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 45.0,
-                          fontFamily: "Big Shoulders Display",
-                        ),
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Container(
-                      width: 100.0,
-                      alignment: Alignment.centerRight,
-                      child: const Text(
-                        'Álcool:',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 35,
-                            fontFamily: "Big Shoulders Display"),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: TextFormField(
-                        controller: _alcCtrl,
-                        keyboardType: TextInputType.number,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 45.0,
-                          fontFamily: "Big Shoulders Display",
-                        ),
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            Input(label: 'Gasolina', ctrl: _gasCtrl),
+            Input(label: 'Álcool', ctrl: _alcCtrl),
           ],
         ),
       ),
