@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
-import 'widgets/input.widget.dart';
-import 'widgets/loading-button.widget.dart';
 import 'widgets/logo.widget.dart';
+import 'widgets/submit.form.dart';
 import 'widgets/success.widget.dart';
 
 void main() {
@@ -41,10 +40,12 @@ class HomePage extends StatelessWidget {
             const Logo(),
             const SizedBox(height: 20),
             Success(result: " gasolina", reset: () {}),
-            Input(label: 'Gasolina', ctrl: _gasCtrl),
-            Input(label: 'Álcool', ctrl: _alcCtrl),
-            LoadingButton(
-                busy: false, invert: false, text: "CALCULAR", func: () {}),
+            SubmitForm(
+              gasCtrl: _gasCtrl,
+              alcCtrl: _alcCtrl,
+              busy: false,
+              submitFunc: () {},
+            ),
           ],
         ),
       ),
