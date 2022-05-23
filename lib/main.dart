@@ -1,10 +1,10 @@
-import 'package:alcool_ou_gasolina/widgets/input.widget.dart';
-import 'package:alcool_ou_gasolina/widgets/success.widget.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
+import 'widgets/input.widget.dart';
 import 'widgets/loading-button.widget.dart';
 import 'widgets/logo.widget.dart';
-import 'package:flutter/material.dart';
+import 'widgets/success.widget.dart';
 
 void main() {
   runApp(const MyApp());
