@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Color _color = Colors.deepPurple;
   var _gasCtrl = MoneyMaskedTextController();
 
   var _alcCtrl = MoneyMaskedTextController();
@@ -26,21 +27,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: SafeArea(
-        child: ListView(
-          children: [
-            const Logo(),
-            const SizedBox(height: 20),
-            _completed
-                ? Success(result: _resultText, reset: reset)
-                : SubmitForm(
-                    gasCtrl: _gasCtrl,
-                    alcCtrl: _alcCtrl,
-                    busy: _busy,
-                    submitFunc: calculate,
-                  ),
-          ],
+      body: AnimatedContainer(
+        duration: const Duration(milliseconds: 1200),
+        color: _color,
+        child: SafeArea(
+          child: ListView(
+            children: [
+              const Logo(),
+              const SizedBox(height: 20),
+              _completed
+                  ? Success(result: _resultText, reset: reset)
+                  : SubmitForm(
+                      gasCtrl: _gasCtrl,
+                      alcCtrl: _alcCtrl,
+                      busy: _busy,
+                      submitFunc: calculate,
+                    ),
+            ],
+          ),
         ),
       ),
     );
@@ -57,6 +61,7 @@ class _HomePageState extends State<HomePage> {
         100;
     double res = alc / gas;
     setState(() {
+      _color = Colors.purple;
       _completed = false;
       _busy = true;
     });
@@ -76,6 +81,7 @@ class _HomePageState extends State<HomePage> {
 
   reset() {
     setState(() {
+      _color = Theme.of(context).primaryColor;
       _gasCtrl = MoneyMaskedTextController();
       _alcCtrl = MoneyMaskedTextController();
       _completed = false;
