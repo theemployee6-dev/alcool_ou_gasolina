@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
             Input(label: 'Gasolina', ctrl: _gasCtrl),
             Input(label: 'Álcool', ctrl: _alcCtrl),
             LoadingButton(
-                busy: true, invert: false, text: "CALCULAR", func: () {}),
+                busy: false, invert: false, text: "CALCULAR", func: () {}),
           ],
         ),
       ),
