@@ -5,18 +5,19 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        const SizedBox(height: 60),
+        SizedBox(height: h * 0.08),
         Image.asset(
           "assets/images/aog-white.png",
-          height: 80.0,
+          height: h * 0.15,
         ),
-        const SizedBox(height: 10),
-        const Text(
+        SizedBox(height: h * 0.08),
+        Text(
           'Álcool ou Gasolina',
           style: TextStyle(
-              fontSize: 25,
+              fontSize: h * 0.07,
               color: Colors.white,
               fontFamily: "Big Shoulders Display"),
           textAlign: TextAlign.center,

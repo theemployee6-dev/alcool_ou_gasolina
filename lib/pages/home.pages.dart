@@ -26,6 +26,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: AnimatedContainer(
         duration: const Duration(milliseconds: 1200),
@@ -34,9 +36,9 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             children: [
               const Logo(),
-              const SizedBox(height: 20),
+              SizedBox(height: h * 0.09),
               _completed
-                  ? Success(result: _resultText, reset: reset)
+                  ? Center(child: Success(result: _resultText, reset: reset))
                   : SubmitForm(
                       gasCtrl: _gasCtrl,
                       alcCtrl: _alcCtrl,
@@ -50,7 +52,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future calculate() {
+  calculate() {
     double alc = double.parse(
           _alcCtrl.text.replaceAll(RegExp(r'[,.]'), ''),
         ) /
@@ -59,7 +61,14 @@ class _HomePageState extends State<HomePage> {
           _gasCtrl.text.replaceAll(RegExp(r'[,.]'), ''),
         ) /
         100;
-    double res = alc / gas;
+    var result = 0.0;
+    if (alc > 0 && gas > 0) {
+      double res = alc / gas;
+      result = res;
+    } else {
+      return;
+    }
+
     setState(() {
       _color = Colors.purple;
       _completed = false;
@@ -68,7 +77,7 @@ class _HomePageState extends State<HomePage> {
 
     return Future.delayed(const Duration(seconds: 1), () {
       setState(() {
-        if (res >= 0.7) {
+        if (result >= 0.7) {
           _resultText = "Compensa utilizar Gasolina";
         } else {
           _resultText = "Compensa utilizar Álcool";
