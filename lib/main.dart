@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:alcool_ou_gasolina/widgets/input.widget.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
