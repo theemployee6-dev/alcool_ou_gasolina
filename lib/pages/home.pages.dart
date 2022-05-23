@@ -13,9 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _gasCtrl = MoneyMaskedTextController();
+  var _gasCtrl = MoneyMaskedTextController();
 
-  final _alcCtrl = MoneyMaskedTextController();
+  var _alcCtrl = MoneyMaskedTextController();
 
   var _busy = false;
 
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             const Logo(),
             const SizedBox(height: 20),
             _completed
-                ? Success(result: _resultText, reset: () {})
+                ? Success(result: _resultText, reset: reset)
                 : SubmitForm(
                     gasCtrl: _gasCtrl,
                     alcCtrl: _alcCtrl,
@@ -71,6 +71,15 @@ class _HomePageState extends State<HomePage> {
         _completed = true;
         _busy = false;
       });
+    });
+  }
+
+  reset() {
+    setState(() {
+      _gasCtrl = MoneyMaskedTextController();
+      _alcCtrl = MoneyMaskedTextController();
+      _completed = false;
+      _busy = false;
     });
   }
 }
