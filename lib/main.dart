@@ -1,6 +1,7 @@
 import 'package:alcool_ou_gasolina/widgets/input.widget.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
+import 'widgets/loading-button.widget.dart';
 import 'widgets/logo.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -56,57 +57,18 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20.0),
-                  Container(
-                    height: 60.0,
-                    width: double.infinity,
-                    margin: const EdgeInsets.all(30.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(60.0),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        debugPrint("Botão Calcular");
-                      },
-                      child: Text(
-                        "Calcular novamente",
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 25,
-                          fontFamily: "Big Shoulders Display",
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  LoadingButton(
+                      busy: false,
+                      invert: true,
+                      text: "Calcular novamente",
+                      func: () {}),
                 ],
               ),
             ),
             Input(label: 'Gasolina', ctrl: _gasCtrl),
             Input(label: 'Álcool', ctrl: _alcCtrl),
-            Container(
-              height: 60.0,
-              width: double.infinity,
-              margin: const EdgeInsets.all(30.0),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8),
-                borderRadius: BorderRadius.circular(60.0),
-              ),
-              child: TextButton(
-                onPressed: () {
-                  debugPrint("Botão Calcular");
-                },
-                child: Text(
-                  "Calcular",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 25,
-                    fontFamily: "Big Shoulders Display",
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+            LoadingButton(
+                busy: true, invert: false, text: "CALCULAR", func: () {}),
           ],
         ),
       ),
